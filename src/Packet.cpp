@@ -1,7 +1,7 @@
 #include "Packet.hpp"
 
 Packet::Packet() {
-	this->head = 5;
+	this->head_size = 5;
 	this->dont_fragment = false;
 	this->more_fragment = false;
 	this->message_size = 0;
@@ -13,9 +13,9 @@ Packet::~Packet() {
 }
 
 int Packet::totalSize() {
-	// TODO
+	return (this->message_size + (this->head_size * 4));
 }
 
-Vector<Packet> Packet::split(int max_size) {
+vector<Packet> Packet::split(int max_size) {
 	// TODO
 }

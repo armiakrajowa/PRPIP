@@ -1,4 +1,5 @@
 #include "Packet.hpp"
+#include <iostream>
 
 Packet::Packet() {
 	this->head_size = 5;
@@ -29,28 +30,26 @@ vector<Packet> Packet::split(int max_size) {
 	vector<Packet> result;
 
 
+	Packet tempP;
+	tempP.setMessageSize(this->message_size);
+	//TODO:sleggib Faire un constructeur par copie
 
-	// Packet tempP;
-	// tempP.setMessageSize(this->message_size);
-	// //TODO:sleggib Faire un constructeur par copie
+	int max_message_size = ((max_size - tempP.head_size * 4)/ 8) * 8;
 
-	// while(tempP->message_size != 0){
+	cout <<  "MAX SIZE = " << max_message_size << endl;
 
-	// }
+	while(tempP.message_size != 0){
+		Packet resTemp;
 
-
-	// int message_size_last_packet = this->message_size % max_size;
-	// int nombre_packet_entier = (this->message_size - message_size_last_packet) / max_size;
-
-	// Packet test;
-	// test.setMessageSize(max_size);
-
-	// result.push_back(test);
-
-	// test.setMessageSize(300);
-
-	// result.push_back(test);
-
+		if(tempP.message_size > max_message_size){
+			resTemp.message_size = max_message_size;
+			tempP.message_size -= max_message_size;
+		} else {
+			resTemp.message_size = tempP.message_size;
+			tempP.message_size = 0;
+		}
+		result.push_back(resTemp);
+	}
 	return result;
 }
 

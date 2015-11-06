@@ -26,4 +26,8 @@ public:
 	void setMessageSize(int message_size);
 
 	void setOffset(int offset);
+	
+	int getHeadSize();
+
+	int getMessageSize();
 };

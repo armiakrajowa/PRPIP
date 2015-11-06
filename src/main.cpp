@@ -16,9 +16,9 @@ int main(int argc, char* argv[]) {
     vector<Packet> testV = Network::splitPacket(test, 1200);
 
     for(int i = 0; i < testV.size(); i++){
-    	cout << "SIZE PACKET N" << (i + 1) << " : " << testV[i].totalSize() << endl;
-    	cout << "SIZE MESSAGE PACKET N" << (i + 1) << " : " << testV[i].getMessageSize() << endl;
-    	cout << "SIZE HEAD PACKET N" << (i + 1) << " : " << testV[i].getHeadSize() << endl;
+    	cout << "Total (" << (i + 1) << ") = " << testV[i].totalSize();
+    	cout << " Message = " << testV[i].getMessageSize();
+    	cout << " Head = " << testV[i].getHeadSize() << endl;
     }
 
     return 0;

@@ -1,5 +1,9 @@
 #include "Network.hpp"
 
+#include <iostream>
+
+using namespace std;
+
 vector<Packet> Network::splitPacket(Packet p, int max_size) {
 	vector<Packet> result;
 
@@ -7,9 +11,7 @@ vector<Packet> Network::splitPacket(Packet p, int max_size) {
 	tempPacket.setMessageSize(p.getMessageSize());
 	//TODO:skeggib Faire un constructeur par copie
 
-	int max_message_size = ((max_size - tempPacket.getHeadSize * 4)/ 8) * 8;
-
-	cout <<  "MAX SIZE = " << max_message_size << endl; // TODO a enlever
+	int max_message_size = ((max_size - tempPacket.getHeadSize() * 4)/ 8) * 8;
 
 	while(tempPacket.getMessageSize() != 0){
 		Packet tempResults;

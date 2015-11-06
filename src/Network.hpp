@@ -6,7 +6,7 @@
 
 using namespace std;
 
-abstract class Network
+class Network
 {
 
 public:

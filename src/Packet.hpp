@@ -23,6 +23,10 @@ public:
 	 */
 	int totalSize();
 
+	void setMessageSize(int message_size);
+
+	void setMessageSize(int offset);
+
 	/*!
 	 * Découpe le paquet en paquets plus petits
 	 * \param int max_size Taille maximale autorisée

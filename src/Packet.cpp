@@ -24,35 +24,3 @@ void  Packet::setMessageSize(int message_size) {
 void  Packet::setOffset(int offset) {
 	this->offset = offset;
 }
-
-vector<Packet> Packet::split(int max_size) {
-	
-	vector<Packet> result;
-
-
-	Packet tempP;
-	tempP.setMessageSize(this->message_size);
-	//TODO:sleggib Faire un constructeur par copie
-
-	int max_message_size = ((max_size - tempP.head_size * 4)/ 8) * 8;
-
-	cout <<  "MAX SIZE = " << max_message_size << endl;
-
-	while(tempP.message_size != 0){
-		Packet resTemp;
-
-		if(tempP.message_size > max_message_size){
-			resTemp.message_size = max_message_size;
-			tempP.message_size -= max_message_size;
-		} else {
-			resTemp.message_size = tempP.message_size;
-			tempP.message_size = 0;
-		}
-		result.push_back(resTemp);
-	}
-	return result;
-}
-
-
-
-

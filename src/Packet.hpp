@@ -26,10 +26,4 @@ public:
 	void setMessageSize(int message_size);
 
 	void setOffset(int offset);
-
-	/*!
-	 * Découpe le paquet en paquets plus petits
-	 * \param int max_size Taille maximale autorisée
-	 */
-	vector<Packet> split(int max_size);
 };

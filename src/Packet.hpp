@@ -26,6 +26,11 @@ public:
 	void setMessageSize(int message_size);
 
 	void setOffset(int offset);
+	
+	int getHeadSize();
+
+	int getMessageSize();
+
 
 	/*!
 	 * Découpe le paquet en paquets plus petits

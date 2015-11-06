@@ -25,6 +25,14 @@ void  Packet::setOffset(int offset) {
 	this->offset = offset;
 }
 
+int Packet::getMessageSize(){
+	return this->message_size;
+}
+
+int Packet::getHeadSize(){
+	return this->head_size;
+}
+
 vector<Packet> Packet::split(int max_size) {
 	
 	vector<Packet> result;

@@ -31,3 +31,15 @@ vector<Packet> Network::splitPacket(Packet p, int max_size) {
 
 	return result;
 }
+
+vector<Packet> Network::splitPackets(vector<Packet> p, int max_size) {
+	vector<Packet> rtrn;
+	vector<Packet> tempVector;
+
+	for (int i = 0; i < p.size(); i++) {
+		tempVector = Network::splitPacket(p[i], max_size);
+		rtrn.insert(rtrn.end(), tempVector.begin(), tempVector.end());
+	}
+
+	return rtrn;
+}

@@ -6,20 +6,33 @@
 
 using namespace std;
 
+void displayPacketsVector(vector<Packet> vec);
+
 int main(int argc, char* argv[]) {
 
-    Packet test;
+    Packet packet;
 
-//    cout << test.totalSize() << endl; 
+//    cout << packet.totalSize() << endl; 
 
-    test.setMessageSize(1300);
-    vector<Packet> testV = Network::splitPacket(test, 1200);
+    packet.setMessageSize(1300);
 
-    for(int i = 0; i < testV.size(); i++){
-    	cout << "Total (" << (i + 1) << ") = " << testV[i].totalSize();
-    	cout << " Message = " << testV[i].getMessageSize();
-    	cout << " Head = " << testV[i].getHeadSize() << endl;
-    }
+    vector<Packet> vec = Network::splitPacket(packet, 1200);
+
+    displayPacketsVector(vec);
+
+    cout << endl;
+
+    vec = Network::splitPackets(vec, 1100);
+
+    displayPacketsVector(vec);
 
     return 0;
+}
+
+void displayPacketsVector(vector<Packet> vec) {
+	for(int i = 0; i < vec.size(); i++){
+    	cout << "Total (" << (i + 1) << ") = " << vec[i].totalSize();
+    	cout << " Message = " << vec[i].getMessageSize();
+    	cout << " Head = " << vec[i].getHeadSize() << endl;
+    }
 }

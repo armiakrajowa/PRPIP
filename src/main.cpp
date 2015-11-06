@@ -3,15 +3,19 @@
 
 #include "Packet.hpp"
 #include "Network.hpp"
+#include "Ihm.hpp"
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
 
+
+
+	ihmNetwork();
+
+	ihmPacket();
+
     Packet test;
-
-//    cout << test.totalSize() << endl; 
-
     test.setMessageSize(1300);
     vector<Packet> testV = Network::splitPacket(test, 1200);
 

@@ -10,21 +10,29 @@ using namespace std;
 void displayPacketsVector(vector<Packet> vec);
 
 int main(int argc, char* argv[]) {
-    Packet packet;
-
-//    cout << packet.totalSize() << endl; 
-
-    packet.setMessageSize(1300);
-
-    vector<Packet> vec = Network::splitPacket(packet, 1200);
-
-    displayPacketsVector(vec);
-
+    
+    Packet packet = ihmPacket();
     cout << endl;
+    vector<int> networksSizes = ihmNetwork();
 
-    vec = Network::splitPackets(vec, 1100);
 
-    displayPacketsVector(vec);
+
+
+//     Packet packet;
+
+// //    cout << packet.totalSize() << endl; 
+
+//     packet.setMessageSize(1300);
+
+//     vector<Packet> vec = Network::splitPacket(packet, 1200);
+
+//     displayPacketsVector(vec);
+
+//     cout << endl;
+
+//     vec = Network::splitPackets(vec, 1100);
+
+//     displayPacketsVector(vec);
 
     return 0;
 }

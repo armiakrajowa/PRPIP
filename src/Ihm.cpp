@@ -16,9 +16,9 @@ vector<int> ihmNetwork(){
 	do {
 		cout << "Reseau " << i + 1 << " : ";
 		cin >> response;
-		result.push_back(response);	
 	} while (response == 0);
 
+	result.push_back(response);
 	i++;
 
 	do {

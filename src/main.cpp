@@ -15,24 +15,18 @@ int main(int argc, char* argv[]) {
     cout << endl;
     vector<int> networksSizes = ihmNetwork();
 
+    int i = 0;
+    vector<Packet> vectorPacket = Network::splitPacket(packet, networksSizes[0]);
+    cout << endl << endl << "Reseau " << i + 1 << endl;
+    displayPacketsVector(vectorPacket);
+    i++;
 
-
-
-//     Packet packet;
-
-// //    cout << packet.totalSize() << endl; 
-
-//     packet.setMessageSize(1300);
-
-//     vector<Packet> vec = Network::splitPacket(packet, 1200);
-
-//     displayPacketsVector(vec);
-
-//     cout << endl;
-
-//     vec = Network::splitPackets(vec, 1100);
-
-//     displayPacketsVector(vec);
+    while (i < networksSizes.size()) {
+        vectorPacket = Network::splitPackets(vectorPacket, networksSizes[i]);
+        cout << endl << endl << "Reseau " << i + 1 << endl;
+        displayPacketsVector(vectorPacket);
+        i++;
+    }
 
     return 0;
 }

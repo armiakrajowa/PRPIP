@@ -33,8 +33,9 @@ int main(int argc, char* argv[]) {
 
 void displayPacketsVector(vector<Packet> vec) {
 	for(int i = 0; i < vec.size(); i++){
-    	cout << "Total (" << (i + 1) << ") = " << vec[i].totalSize();
-    	cout << " Message = " << vec[i].getMessageSize();
-    	cout << " Head = " << vec[i].getHeadSize() << endl;
+    	cout << "(" << (i + 1) << ")";
+        cout << "\tTotal = " << vec[i].totalSize();
+    	cout << "\tMessage = " << vec[i].getMessageSize();
+    	cout << "\tHead = " << vec[i].getHeadSize() << endl;
     }
 }

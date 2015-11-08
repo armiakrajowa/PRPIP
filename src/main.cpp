@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
     vector<int> networksSizes = ihmNetwork();
 
     int i = 0;
-    vector<Packet> vectorPacket = Network::splitPacket(packet, networksSizes[0]);
+    vector<Packet> vectorPacket = Network::splitPacket(packet, networksSizes[0], packet, false);
     cout << endl << endl << "Reseau " << i + 1 << endl;
     displayPacketsVector(vectorPacket);
     i++;
@@ -36,6 +36,7 @@ void displayPacketsVector(vector<Packet> vec) {
     	cout << "(" << (i + 1) << ")";
         cout << "\tTotal = " << vec[i].totalSize();
     	cout << "\tMessage = " << vec[i].getMessageSize();
-    	cout << "\tHead = " << vec[i].getHeadSize() << endl;
+        cout << "\tHead = " << vec[i].getHeadSize();
+        cout << "\tOffset = " << vec[i].getOffset() << endl;
     }
 }

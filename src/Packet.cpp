@@ -29,6 +29,10 @@ int Packet::getMessageSize(){
 	return this->message_size;
 }
 
+int Packet::getOffset(){
+	return this->offset;
+}
+
 int Packet::getHeadSize(){
 	return this->head_size;
 }

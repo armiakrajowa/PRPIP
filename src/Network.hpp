@@ -10,7 +10,7 @@ class Network
 {
 
 public:
-	static vector<Packet> splitPacket(Packet p, int max_size);
+	static vector<Packet> splitPacket(Packet p, int max_size, Packet previousPacket, bool prevPacket);
 	static vector<Packet> splitPackets(vector<Packet> p, int max_size);
 
 };

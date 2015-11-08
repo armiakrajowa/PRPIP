@@ -32,4 +32,6 @@ public:
 	int getHeadSize();
 
 	int getMessageSize();
+	
+	int getOffset();
 };
